@@ -123,7 +123,7 @@ public class UsuarioController {
 
 		userService.insert(user);
 		model.addAttribute("users", userService.list());
-		return "home";
+		return "redirect:/";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -172,7 +172,8 @@ public class UsuarioController {
 		userService.insert(idUsuario, idPerfil);
 		return "home";
 	}
-
+	
+	 // ojo las llamadas a las paginas se hacen desde un Controller NO desde un RestController
 	@GetMapping("/verTickets")
 	public String vistaTickets() {
 		System.out.println("Tickets!!!!");

@@ -13,7 +13,17 @@ public class TicketServiceImpl implements TicketService{
 	@Autowired
 	private TicketRepository ticketRepository;
 	
-   public List<Ticket> list(){
-	    return (List<Ticket>)ticketRepository.findAll();
+   public List<Ticket> list(){	   
+	   List<Ticket> lista = (List<Ticket>)ticketRepository.findAll();
+	   double subtotal =0;
+	   int i=0;
+       for (Ticket ticket:lista) {
+    	   Ticket t = (Ticket)lista.get(i);//lees la fila
+    	   subtotal = t.getQuantity()*t.getPrice();
+    	   t.setSubTotal(subtotal);
+    	   lista.set(i, t);
+    	   i++;
+       }
+	   return lista;
    }
 }
