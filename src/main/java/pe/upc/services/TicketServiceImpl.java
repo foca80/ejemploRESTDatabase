@@ -15,7 +15,7 @@ public class TicketServiceImpl implements TicketService{
 	
    public List<Ticket> list(){	   
 	   List<Ticket> lista = (List<Ticket>)ticketRepository.findAll();
-	   double subtotal =0;
+	  /*double subtotal =0;
 	   int i=0;
        for (Ticket ticket:lista) {
     	   Ticket t = (Ticket)lista.get(i);//lees la fila
@@ -24,6 +24,9 @@ public class TicketServiceImpl implements TicketService{
     	   lista.set(i, t);
     	   i++;
        }
+       */
+       //lo comentado funciona, sin embargo, está forma es más corta, usado funciones Lambda 
+       lista.forEach(ticket -> ticket.setSubTotal(ticket.getPrice()*ticket.getQuantity()));
 	   return lista;
    }
 }
