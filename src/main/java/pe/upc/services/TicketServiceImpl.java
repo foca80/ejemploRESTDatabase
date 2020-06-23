@@ -25,7 +25,7 @@ public class TicketServiceImpl implements TicketService{
     	   i++;
        }
        */
-       //lo comentado funciona, sin embargo, está forma es más corta, usado funciones Lambda 
+       //lo comentado funciona, sin embargo, está forma es más corta, usando funciones Lambda 
        lista.forEach(ticket -> ticket.setSubTotal(ticket.getPrice()*ticket.getQuantity()));
 	   return lista;
    }
